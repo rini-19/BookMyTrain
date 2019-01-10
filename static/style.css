@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Viga');
+
 body {
   font-family: 'PT Sans', sans-serif;
   background-color: #eee;
@@ -7,7 +9,7 @@ body {
 #showcase{
   margin: 0;
   padding: 0;
-  background: url(../../media_cdn/bg_showcase.jpeg) no-repeat center/cover;
+  background: url(imgs/bg_showcase.jpeg) no-repeat center/cover;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -20,11 +22,13 @@ body {
 #showcase h1{
   color: #b30000;
   font-size: 4.5rem;
+  font-family: 'Viga', sans-serif;
 }
 
 #showcase h2{
   color: #b30000;
   font-size: 2rem;
+  font-family: 'Lobster', cursive;
 }
 
 .grid{
@@ -43,6 +47,13 @@ body {
   float: left;
 }
 
+#user-dashboard{
+  margin: 0;
+  padding: 0;
+  background: url(imgs/pnr.jpg) no-repeat center/cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 h2 {
@@ -96,7 +107,7 @@ nav li:hover {
 }
 
 .userOptions{
-  margin: auto;
+  margin-left: 6px;
   padding: 10rem;
 }
 
@@ -104,9 +115,9 @@ nav li:hover {
   display: block;
   width: 25vw;
   height: 120px;
-/* border: 2px solid black; */
+  border: none;
   margin: 4rem;
-  background-image: linear-gradient(#00006B,#d1d1e0);
+  background-image: linear-gradient(#b30000,#ff4d4d);
   transition: all 0.5s;
 }
 
@@ -129,7 +140,7 @@ nav li:hover {
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  right: -15px;
   transition: 0.5s;
 }
 
