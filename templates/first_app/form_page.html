@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forms</title>
+    <title>Registeration Form | Book Your Train</title>
 </head>
 <body>
-  <h2>Fill out the form!</h2>
+  <h2 style="color:#414d5f">Fill out the form!</h2>
   <div class = "container">
       <form method="POST">
       {{ form.as_p }}
@@ -13,6 +13,18 @@
           <input type="submit" class="btn btn-primary" value="Submit">
       </form>
   </div>
+
+ <script>
+  $(function() {
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1990:2021",
+      // You can put more options here.
+
+    });
+  });
+  </script>
 
 </body>
 </html>

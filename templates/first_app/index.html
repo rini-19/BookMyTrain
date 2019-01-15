@@ -14,7 +14,7 @@
         <nav class='cf'>
         <ul class='cf'>
           <li>
-            <a href='#findTrains'>Find Trains</a> 
+            <a href='#findTrains'>Find Trains</a>
           </li>
           <li>
             <a href='#checkPNR'>Check PNR</a>
@@ -38,20 +38,15 @@
         <h2> welcome to the safest and securest mode of transportation </h2>
         <!--<p>Indian railways strives to work for betterment and safet</p>-->
       </div>
-        <form class="form-signin form-box pull-right">
-          <h3 class="h3 mb-3 font-weight-normal">Welcome</h3>
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
+        <div class="form-box pull-right">
+          <h3 class="h3 mb-3 font-weight-normal">{{title}}</h3>
+          <form method="post" action="" class="form-signin" enctype="multipart/form-data">
+          {{ form.as_p }}
+          {% csrf_token %}
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <h3 class="h3 mb-3 font-weight-normal">New here? Register <a href="#">here</a></h3>
-		</form>
+        </form>
+      <h3 class="h3 mb-3 font-weight-normal">New here? <a href="#">Register</a></h3>
+		</div>
   </div>
   </div>
 

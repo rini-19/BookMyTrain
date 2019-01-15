@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from . import forms
+from django.contrib.auth import (
+authenticate,
+get_user_model,
+login,
+logout,
+)
+from .forms import userLoginForm, RegisterForm
 
 def index(request):
     return render(request, 'first_app/index.html')
@@ -8,22 +14,33 @@ def index(request):
 def user(request):
     return render(request, 'first_app/userDashboard.html')
 
-def Register_view(request):
-    form = forms.Register()
+def login_view(request):
+    print(request.user.is_authenticated)
+    title = "login"
+    form = userLoginForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user= authenticate(username = username, password =password)
+        login(request, user)
+        return redirect('userdashboard')
+    return render(request, "first_app/index.html", {"form":form, "title":title})
 
-    if request.method == 'POST':
-        form = forms.Register(request.POST)
+def register_view(request):
+    form = RegisterForm(request.POST or None)
 
-        if form.is_valid():
-            #do some code
-            print("VALIDATION SUCCESS!")
-            print("NAME: "+form.cleaned_data['name'])
-            print("EMAIL: " + form.cleaned_data['email'])
-            print("USERNAME: " + form.cleaned_data['username'])
-            print("PASSWORD: " + form.cleaned_data['password'])
-            print("VARIFY_PASSWORD: " + form.cleaned_data['varify_password'])
+    if form.is_valid():
+        print("VALIDATION SUCCESS!")
+        instance = form.save(commit = False)
+        password = form.cleaned_data.get("password")
+        instance.set_password(password)
+        instance.save()
+        new_user= authenticate(username = instance.username, password =password)
+        login(request, new_user)
+            #instance.save()
 
-
-
-
+    #    else:
     return render(request, 'first_app/form_page.html', {'form':form})
+
+def logout_view(request):
+    return render(request, "", {})
