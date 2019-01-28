@@ -1,12 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import (
-authenticate,
-get_user_model,
-login,
-logout,
-)
+from django.contrib.auth import authenticate, get_user_model, login, logout
+
 from .forms import userLoginForm, RegisterForm
+
 
 def index(request):
     return render(request, 'first_app/index.html')
@@ -16,7 +13,6 @@ def user(request):
 
 def login_view(request):
     print(request.user.is_authenticated)
-    title = "login"
     form = userLoginForm(request.POST or None)
     if form.is_valid():
         username = form.cleaned_data.get("username")
@@ -24,7 +20,7 @@ def login_view(request):
         user= authenticate(username = username, password =password)
         login(request, user)
         return redirect('userdashboard')
-    return render(request, "first_app/index.html", {"form":form, "title":title})
+    return render(request, "first_app/index.html", {"form":form})
 
 def register_view(request):
     form = RegisterForm(request.POST or None)
@@ -37,10 +33,12 @@ def register_view(request):
         instance.save()
         new_user= authenticate(username = instance.username, password =password)
         login(request, new_user)
+        return redirect('userdashboard')
             #instance.save()
 
     #    else:
     return render(request, 'first_app/form_page.html', {'form':form})
 
 def logout_view(request):
+    logout(request)
     return render(request, "", {})

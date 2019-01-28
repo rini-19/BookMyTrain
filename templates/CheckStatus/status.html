@@ -1,0 +1,18 @@
+{% extends 'statusForm.html' %}  
+
+
+    {% block content %}
+    <h2>TRAIN STATUS</h2>
+    <table>
+    	<tr>
+    		<th>Station Name</th>
+    		<th>Arrival Time</th>
+    	</tr>
+    	{% for i in route %}
+    	<tr>
+	    	<th>{{i.station_name}}</th>
+	    	<th>{{i.arrival_time}}</th>
+    	</tr>
+    	{% endfor %}
+    </table>
+    {% endblock %}
