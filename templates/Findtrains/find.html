@@ -1,0 +1,48 @@
+{% extends 'statusForm.html' %}  
+
+
+    {% block content %}
+    <form action="" method="GET"> 
+      <input type="text" name="src" placeholder="From">
+      <br>
+      <input type="text" name="dest" placeholder="To">
+      <br>
+      <button type="submit">Get Trains</button>
+    </form>
+    <h2>TRAIN OPTIONS</h2>
+    <table>
+    	<tr>
+    		<th>Train Number</th>
+    		<th>Train Name</th>
+            <th>{{src}}</th>
+            <th>{{dest}} </th>
+    	</tr>
+
+        <th>
+            {% for i in train_list %}
+            <br>
+            <tr>{{i.train_no}}</tr>
+            
+            {% endfor %}
+        </th>
+        <th>
+            {% for i in train_list %}
+            <br>
+            <tr>{{i.train_name}}</tr>
+            {% endfor %}
+        </th>
+        <th>
+            {% for i in dept_list %}
+            <tr>{{i}}</tr>
+            <br>
+            {% endfor %}
+        </th>
+        <th>
+            {% for i in arr_list %}
+            <tr>{{i}}</tr>
+            <br>
+            {% endfor %}
+        </th>
+    	
+    </table>
+    {% endblock %}

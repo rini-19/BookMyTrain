@@ -2,6 +2,19 @@
 
 
     {% block content %}
+    <form action="" method="GET"> 
+      <input type="number" name="trainNo" placeholder="Enter Train Number">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    <p>Train Number: {{train_obj.train_no}}</p>
+    <br>
+    <p>Train Name: {{train_obj.train_name}}</p>
+    <br>
+    <p>Destintion: {{train_obj.destination}}</p>
+    <br> 
+    <p>Source: {{train_obj.source}}</p>
+     <br> <br> <br>
     <h2>TRAIN STATUS</h2>
     <table>
     	<tr>
@@ -15,4 +28,5 @@
     	</tr>
     	{% endfor %}
     </table>
+    <p>{{stn_pass}}</p>
     {% endblock %}
