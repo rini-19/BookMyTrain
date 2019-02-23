@@ -1,0 +1,11 @@
+{% extends 'userDashboard.html' %}  
+
+
+    {% block content %}
+    <form action="" method="POST"> {% csrf_token %}
+        {{ form.as_p }}
+      <button type="submit" name="dispTicket">Book Ticket</button>
+      <button type="submit" name="addPsngr">Add Passenger</button>
+    </form>
+    
+    {% endblock %}

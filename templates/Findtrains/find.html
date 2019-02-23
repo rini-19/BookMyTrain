@@ -10,7 +10,41 @@
       <button type="submit">Get Trains</button>
     </form>
     <h2>TRAIN OPTIONS</h2>
-    <table>
+    <span>
+
+        
+    </span>
+    <div class="ftTable">
+        <div>
+            <h2>Train Number</h2>
+        {% for i in train_list %}
+            <br>
+            <h3>{{i.train_no}}</h3>   
+            {% endfor %}<br>
+        </div>
+        <div>
+            <h2>Train Name</h2>
+            {% for i in train_list %}
+            <br>
+            <td>{{i.train_name}}</td>
+            {% endfor %}
+        </div>
+        <div>
+            <h2>{{src}}</h2>
+            {% for i in dept_list %}
+            <td>{{i}}</td>
+            <br>
+            {% endfor %}
+        </div>
+        <div>
+            <h2>{{dest}}</h2>
+            {% for i in arr_list %}
+            <td>{{i}}</td>
+            <br>
+            {% endfor %}
+        </div> 
+    </div>
+   <!--  <table>
     	<tr>
     		<th>Train Number</th>
     		<th>Train Name</th>
@@ -18,31 +52,30 @@
             <th>{{dest}} </th>
     	</tr>
 
-        <th>
+        <tr>
             {% for i in train_list %}
             <br>
-            <tr>{{i.train_no}}</tr>
-            
-            {% endfor %}
-        </th>
-        <th>
+            <td>{{i.train_no}}</td>   
+            {% endfor %}<br>
+        </tr>
+        <tr>
             {% for i in train_list %}
             <br>
-            <tr>{{i.train_name}}</tr>
+            <td>{{i.train_name}}</td>
             {% endfor %}
-        </th>
-        <th>
+        </tr>
+        <tr>
             {% for i in dept_list %}
-            <tr>{{i}}</tr>
+            <td>{{i}}</td>
             <br>
             {% endfor %}
-        </th>
-        <th>
+        </tr>
+        <tr>
             {% for i in arr_list %}
-            <tr>{{i}}</tr>
+            <td>{{i}}</td>
             <br>
             {% endfor %}
-        </th>
+        </tr>
     	
-    </table>
+    </table> -->
     {% endblock %}

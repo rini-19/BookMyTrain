@@ -1,13 +1,34 @@
-{% extends 'statusForm.html' %}  
+{% extends 'userDashboard.html' %}  
 
 
     {% block content %}
-    <form action="" method="GET"> 
-      <input type="text" name="src" placeholder="From">
-      <br>
-      <input type="text" name="dest" placeholder="To">
-      <br>
-      <button type="submit">Get Trains</button>
+    <form action="" method="POST"> {% csrf_token %}
+        {{ form.as_p }}
+    	<!-- <input type="number" name="train_no" placeholder="Enter train number">
+    	<br><br>
+    	<select name="from_station" placeholder="From">
+    		{% for i in stn_list %}
+    		<option>{{ i.station_name }}</option>
+    		{% endfor %}
+    	</select>
+    	<br><br>
+        <select name="to_station" placeholder="To">
+    		{% for i in stn_list %}
+    		<option>{{ i.station_name }}</option>
+    		{% endfor %}
+    	</select>
+        <br><br>
+        <input type="date" id="start" name="d_o_j" value="2018-07-22">
+        <br><br>
+        <select name="coach">
+        	<option>first class</option>
+        	<option>second class</option>
+        	<option>general</option>
+        </select>
+        <br><br>
+        <input type="number" name="psngrCnt" placeholder="Number of Passengers">
+        <br><br> -->
+      <button type="submit">enter</button>
     </form>
     
     {% endblock %}

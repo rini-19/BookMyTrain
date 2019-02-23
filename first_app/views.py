@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, get_user_model, login, logout
+from django.contrib.auth import authenticate, get_user_model, login, logout 
 
 from .forms import userLoginForm, RegisterForm
 
@@ -41,4 +41,5 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, "", {})
+    return redirect(request, reverse('index'))
+

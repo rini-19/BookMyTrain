@@ -15,16 +15,16 @@
           <a href='#findTrains'>{{ request.user }}</a>
         </li>
         <li class="pull-right">
-          <a href='index'>Logout</a>
+          <a href="{% url 'index' %}">Logout</a>
         </li>
       </ul>
       </nav>
     </header>
     <div id="user-dashboard">
       <div class="container userOptions">
-          <a href='#'><button> <span>Book Ticket</span></button></a>
-          <a href='#'><button><span>Check PNR</span></button></a>
-          <a href='#'><button><span>Cancel Ticket</span></button></a>
+          <a href="{% url 'ticketData' %}"><button> <span>Book Ticket</span></button></a>
+          <a href="{% url 'askPNR' %}"><button><span>Check PNR</span></button></a>
+          <a href="{% url 'askDel' %}"><button><span>Cancel Ticket</span></button></a>
       </div>
   </div>
   </body>

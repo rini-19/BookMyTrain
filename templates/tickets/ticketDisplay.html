@@ -1,0 +1,37 @@
+{% extends 'userDashboard.html' %}  
+
+
+    {% block content %}
+    <h2>Ticket Details</h2>
+    <h3>pnr: {{tkt_obj.pnr}}</h3><br>
+    <h3>train Name: {{tkt_obj.train_no}}</h3><br>
+    <h3>Boarding From: {{tkt_obj.from_station}}</h3><br>
+    <h3>Destination Station: {{tkt_obj.to_station}}</h3><br>
+    <h3>Date of Journey: {{tkt_obj.d_o_j}}</h3><br>
+    <h3>Departure Time: {{tkt_obj.start_time}}</h3><br>
+    <h3>Arrival Time: {{tkt_obj.end_time}}</h3><br><br><br>
+    <h2>Passenger Details</h2>
+    <table>
+	    <tr>
+	    	<td>Name</td>
+	    	<td>Age</td>
+	    	<td>Gender</td>
+	    	<td>Seat Number</td>
+	    	<td>status</td>
+	    </tr>
+	    {% for obj in psngr_list %}
+	    <tr>
+	    	<td>{{obj.name}}</td>
+	    	<td>{{obj.age}}</td>
+	    	<td>{{obj.gender}}</td>
+	    	<td>{{obj.seat_no}}</td>
+	    	<td>{{obj.status}}</td>
+	    </tr>
+	    {% endfor %}
+	</table>
+
+    <h2>Fare Details</h2>
+    <h3>fare per hour per person: {{fare}} </h3>
+    <h3>Total fare: {{tkt_obj.fair}}</h3>
+    
+    {% endblock %}

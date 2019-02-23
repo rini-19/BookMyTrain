@@ -8,15 +8,15 @@ from django.contrib.auth import authenticate, get_user_model, login, logout
 
 
 User = get_user_model()
-#GENDER = (
-#    ('F', 'Female'),
-#    ('M', 'Male'),
-#    ('O', 'Other'),
-#)
+GENDER = (
+   ('F', 'Female'),
+   ('M', 'Male'),
+   ('O', 'Other'),
+)
 
 class RegisterForm(forms.ModelForm):
     name = forms.CharField(max_length=30)
-    #gender = forms.CharField(max_length=1, choices=GENDER)
+    gender = forms.ChoiceField(choices=GENDER)
     password = forms.CharField(max_length=32, widget=forms.PasswordInput)
     vpassword = forms.CharField(label='Confirm Password:', widget=forms.PasswordInput)
     dob = forms.DateField(widget=forms.TextInput(attrs=
@@ -28,7 +28,7 @@ class RegisterForm(forms.ModelForm):
         fields = [
             'name',
             'email',
-            #'gender',
+            'gender',
             'dob',
             'username',
             'password',

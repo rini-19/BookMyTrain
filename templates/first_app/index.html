@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,19 +14,19 @@
         <nav class='cf'>
         <ul class='cf'>
           <li>
-            <a href='#findTrains'>Find Trains</a>
+            <a href="{% url 'trains' %}">Find Trains</a>
           </li>
           <li>
             <a href='#checkPNR'>Check PNR</a>
           </li>
           <li>
-            <a href='#checkStatus'>Check Status</a>
+            <a href="{% url 'getTrain' %}">Check Status</a>
           </li>
           <li>
-            <a href='#login'>Signup</a>
+            <a href="{% url 'registerpage' %}">Signup</a>
           </li>
           <li>
-            <a href='#showcase'>BYTrain</a>
+            <a href="{% url 'index' %}">BYTrain</a>
           </li>
         </ul>
         <a href='#' id='openup'>MENU</a>
